@@ -35,7 +35,7 @@ Partial Class frmMainLab1
         Me.radSquill = New System.Windows.Forms.RadioButton()
         Me.radZucca = New System.Windows.Forms.RadioButton()
         Me.radWomprat = New System.Windows.Forms.RadioButton()
-        Me.radBantha = New System.Windows.Forms.RadioButton()
+        Me.radSteak = New System.Windows.Forms.RadioButton()
         Me.grpSnacks = New System.Windows.Forms.GroupBox()
         Me.cbxDung = New System.Windows.Forms.CheckBox()
         Me.cbxEopie = New System.Windows.Forms.CheckBox()
@@ -144,7 +144,7 @@ Partial Class frmMainLab1
         Me.grpMeals.Controls.Add(Me.radSquill)
         Me.grpMeals.Controls.Add(Me.radZucca)
         Me.grpMeals.Controls.Add(Me.radWomprat)
-        Me.grpMeals.Controls.Add(Me.radBantha)
+        Me.grpMeals.Controls.Add(Me.radSteak)
         Me.grpMeals.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpMeals.ForeColor = System.Drawing.Color.Yellow
         Me.grpMeals.Location = New System.Drawing.Point(244, 71)
@@ -202,17 +202,17 @@ Partial Class frmMainLab1
         Me.radWomprat.Text = "Womprat Soup"
         Me.radWomprat.UseVisualStyleBackColor = True
         '
-        'radBantha
+        'radSteak
         '
-        Me.radBantha.AutoSize = True
-        Me.radBantha.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radBantha.Location = New System.Drawing.Point(17, 28)
-        Me.radBantha.Name = "radBantha"
-        Me.radBantha.Size = New System.Drawing.Size(125, 24)
-        Me.radBantha.TabIndex = 3
-        Me.radBantha.TabStop = True
-        Me.radBantha.Text = "Bantha Steak"
-        Me.radBantha.UseVisualStyleBackColor = True
+        Me.radSteak.AutoSize = True
+        Me.radSteak.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radSteak.Location = New System.Drawing.Point(17, 28)
+        Me.radSteak.Name = "radSteak"
+        Me.radSteak.Size = New System.Drawing.Size(125, 24)
+        Me.radSteak.TabIndex = 3
+        Me.radSteak.TabStop = True
+        Me.radSteak.Text = "Bantha Steak"
+        Me.radSteak.UseVisualStyleBackColor = True
         '
         'grpSnacks
         '
@@ -477,7 +477,7 @@ Partial Class frmMainLab1
     Friend WithEvents radSquill As RadioButton
     Friend WithEvents radZucca As RadioButton
     Friend WithEvents radWomprat As RadioButton
-    Friend WithEvents radBantha As RadioButton
+    Friend WithEvents radSteak As RadioButton
     Friend WithEvents cbxDung As CheckBox
     Friend WithEvents cbxEopie As CheckBox
     Friend WithEvents cbxTusken As CheckBox

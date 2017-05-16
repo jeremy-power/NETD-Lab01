@@ -1,4 +1,15 @@
-﻿Public Class frmMainLab1
+﻿' --------------------------------------------
+' Name: Jeremy Power 100523300
+' Date: May 16, 2017
+' Purpose: Lab 1A
+' Description: Cantina Order Form
+' Allows the user to enter a number of drinks
+' between 1 and 5, choose from a type of drink,
+' meal and any of 3 snacks, if input is valid
+' it will provide an output of 3 calculated 
+' total pricess and an overall total.
+' --------------------------------------------
+Public Class frmMainLab1
 #Region "Variable Declaration"
     'drink prices
     Private Const banthPrice As Integer = 3000
@@ -52,10 +63,14 @@
             radBut.Checked = False
         Next
 
+
+
         'clears all snack checkboxes
         For Each cbx As CheckBox In grpSnacks.Controls
             cbx.Checked = False
         Next
+
+        txtDrinks.Focus()
 
     End Sub
 
@@ -80,8 +95,7 @@
 
                 'checks if drink box empty
                 If lbxDrinkType.SelectedIndex = -1 Then
-                    MessageBox.Show("Must select a drink type")
-
+                    MessageBox.Show("Must select a drink type", "No Selected Drink Type Error")
 
                 Else
                     'checks each meal radio button to ensure one is checked
@@ -93,7 +107,7 @@
                     Next
                     'prints error if no radio button is checked
                     If Not mealSelected Then
-                        MessageBox.Show("Must select a meal")
+                        MessageBox.Show("Must select a meal", "No Selected Meal Error")
 
                         'if all input passes validation, proceeds with calculation
                     Else
@@ -103,14 +117,14 @@
 
                 'Error handle for drink number not between 1 and 5
             Else
-                MessageBox.Show("Must a be a whole number between 1 and 5")
+                MessageBox.Show("# of drinks must a be a whole number between 1 and 5", "Number of Drinks Error")
                 txtDrinks.Focus()
             End If
             'Error handle for invalid drink number (decimal or string)
         Else
-            MessageBox.Show("Must a be a whole number between 1 and 5", "Error")
+            MessageBox.Show("# of drinks must a be a whole number between 1 and 5", "Number of Drinks Error")
             txtDrinks.Focus()
-            End If
+        End If
     End Sub
 
     ''' <summary>
@@ -121,12 +135,14 @@
     ''' </summary>
     ''' <param name="drinksInt"></param>
     Private Sub calcOrder(ByVal drinksInt As Integer)
+        'defines total for each section to be displayed
         Dim drinkTotal As Integer = 0
         Dim mealTotal As Integer = 0
         Dim snackTotal As Integer = 0
 
         Dim totalAmount As Integer = 0
 
+        'calculates drink price based on listbox selection
         Select Case lbxDrinkType.SelectedItem
             Case "Banth-Blood Fizz"
                 drinkTotal = drinksInt * banthPrice
@@ -142,11 +158,14 @@
                 drinkTotal = drinksInt * deathPrice
         End Select
 
+        'sets output to drink value
         lblDrinkVal.Text = FormatCurrency(drinkTotal)
+        'adds drinks to final total
         totalAmount += drinkTotal
 
-        If radBantha.Checked Then
-            mealTotal = banthPrice
+        'calculates meal price based on radio button selection
+        If radSteak.Checked Then
+            mealTotal = steakPrice
         ElseIf radWomprat.Checked Then
             mealTotal = wompratPrice
         ElseIf radZucca.Checked Then
@@ -154,9 +173,13 @@
         ElseIf radSquill.Checked Then
             mealTotal = squillPrice
         End If
+
+        'sets output to meal value
         lblMealVal.Text = FormatCurrency(mealTotal)
+        'adds meals to final total
         totalAmount += mealTotal
 
+        'calculates snack price based on each checkbox
         If cbxTusken.Checked Then
             snackTotal += tuskenPrice
         End If
@@ -166,9 +189,13 @@
         If cbxDung.Checked Then
             snackTotal += dungPrice
         End If
+
+        'sets output to snack value
         lblSnackVal.Text = FormatCurrency(snackTotal)
+        'adds snacks to final total
         totalAmount += snackTotal
 
+        'sets output value to final total
         lblTotalVal.Text = FormatCurrency(totalAmount)
 
     End Sub
