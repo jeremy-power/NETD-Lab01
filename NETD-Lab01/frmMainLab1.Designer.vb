@@ -22,6 +22,7 @@ Partial Class frmMainLab1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainLab1))
         Me.pnlTitle = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
@@ -54,6 +55,7 @@ Partial Class frmMainLab1
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnMusic = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.tipCantina = New System.Windows.Forms.ToolTip(Me.components)
         Me.pnlTitle.SuspendLayout()
         Me.grpDrinks.SuspendLayout()
         Me.grpMeals.SuspendLayout()
@@ -107,7 +109,8 @@ Partial Class frmMainLab1
         Me.cbxDrinks.Location = New System.Drawing.Point(13, 104)
         Me.cbxDrinks.Name = "cbxDrinks"
         Me.cbxDrinks.Size = New System.Drawing.Size(186, 28)
-        Me.cbxDrinks.TabIndex = 3
+        Me.cbxDrinks.TabIndex = 0
+        Me.tipCantina.SetToolTip(Me.cbxDrinks, "Drink Type")
         '
         'lblDrinkType
         '
@@ -126,6 +129,7 @@ Partial Class frmMainLab1
         Me.txtDrinks.Name = "txtDrinks"
         Me.txtDrinks.Size = New System.Drawing.Size(82, 26)
         Me.txtDrinks.TabIndex = 1
+        Me.tipCantina.SetToolTip(Me.txtDrinks, "Number of Drinks")
         '
         'lblDrinkNum
         '
@@ -157,6 +161,7 @@ Partial Class frmMainLab1
         'radNoMeal
         '
         Me.radNoMeal.AutoSize = True
+        Me.radNoMeal.Checked = True
         Me.radNoMeal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.radNoMeal.Location = New System.Drawing.Point(17, 148)
         Me.radNoMeal.Name = "radNoMeal"
@@ -164,6 +169,7 @@ Partial Class frmMainLab1
         Me.radNoMeal.TabIndex = 7
         Me.radNoMeal.TabStop = True
         Me.radNoMeal.Text = "NO Meal"
+        Me.tipCantina.SetToolTip(Me.radNoMeal, "No Meal")
         Me.radNoMeal.UseVisualStyleBackColor = True
         '
         'radSquill
@@ -176,6 +182,7 @@ Partial Class frmMainLab1
         Me.radSquill.TabIndex = 6
         Me.radSquill.TabStop = True
         Me.radSquill.Text = "Squill Liver Salad"
+        Me.tipCantina.SetToolTip(Me.radSquill, "Squill Liver Salad")
         Me.radSquill.UseVisualStyleBackColor = True
         '
         'radZucca
@@ -188,6 +195,7 @@ Partial Class frmMainLab1
         Me.radZucca.TabIndex = 5
         Me.radZucca.TabStop = True
         Me.radZucca.Text = "Zucca Fruit Pastry"
+        Me.tipCantina.SetToolTip(Me.radZucca, "Zucca Fruit Pastry")
         Me.radZucca.UseVisualStyleBackColor = True
         '
         'radWomprat
@@ -200,6 +208,7 @@ Partial Class frmMainLab1
         Me.radWomprat.TabIndex = 4
         Me.radWomprat.TabStop = True
         Me.radWomprat.Text = "Womprat Soup"
+        Me.tipCantina.SetToolTip(Me.radWomprat, "Womprat Soup")
         Me.radWomprat.UseVisualStyleBackColor = True
         '
         'radSteak
@@ -212,6 +221,7 @@ Partial Class frmMainLab1
         Me.radSteak.TabIndex = 3
         Me.radSteak.TabStop = True
         Me.radSteak.Text = "Bantha Steak"
+        Me.tipCantina.SetToolTip(Me.radSteak, "Bantha Steak")
         Me.radSteak.UseVisualStyleBackColor = True
         '
         'grpSnacks
@@ -377,6 +387,7 @@ Partial Class frmMainLab1
         Me.btnCalc.Size = New System.Drawing.Size(101, 33)
         Me.btnCalc.TabIndex = 5
         Me.btnCalc.Text = "&Calculate"
+        Me.tipCantina.SetToolTip(Me.btnCalc, "Calculate")
         Me.btnCalc.UseVisualStyleBackColor = True
         '
         'btnClear
@@ -388,6 +399,7 @@ Partial Class frmMainLab1
         Me.btnClear.Size = New System.Drawing.Size(101, 33)
         Me.btnClear.TabIndex = 7
         Me.btnClear.Text = "Clear"
+        Me.tipCantina.SetToolTip(Me.btnClear, "Clear")
         Me.btnClear.UseVisualStyleBackColor = True
         '
         'btnExit
@@ -399,6 +411,7 @@ Partial Class frmMainLab1
         Me.btnExit.Size = New System.Drawing.Size(101, 33)
         Me.btnExit.TabIndex = 8
         Me.btnExit.Text = "E&xit"
+        Me.tipCantina.SetToolTip(Me.btnExit, "Exit")
         Me.btnExit.UseVisualStyleBackColor = True
         '
         'btnMusic
@@ -412,6 +425,7 @@ Partial Class frmMainLab1
         Me.btnMusic.Size = New System.Drawing.Size(116, 17)
         Me.btnMusic.TabIndex = 9
         Me.btnMusic.Text = "Play Cantina Music"
+        Me.tipCantina.SetToolTip(Me.btnMusic, "Music")
         Me.btnMusic.UseVisualStyleBackColor = False
         '
         'Label1
@@ -493,4 +507,5 @@ Partial Class frmMainLab1
     Friend WithEvents lblMealVal As Label
     Friend WithEvents lblDrinkVal As Label
     Friend WithEvents cbxDrinks As ComboBox
+    Friend WithEvents tipCantina As ToolTip
 End Class

@@ -25,7 +25,6 @@ Public Class frmMainLab1
     Dim drinkPrices = New Decimal(7) {3000.0, 1500.0, 2500.0, 2000.0, 3500.0, 4000.0, 10000.0, 1000.0}
     Private Sub frmMainLab1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'set drink prices
-
         cbxDrinks.DataSource = drinkNames
     End Sub
 #End Region
@@ -61,6 +60,7 @@ Public Class frmMainLab1
         For Each radBut As RadioButton In grpMeals.Controls
             radBut.Checked = False
         Next
+        radNoMeal.Checked = True
 
 
 
@@ -211,4 +211,7 @@ Public Class frmMainLab1
 
     End Sub
 
+    Private Sub txtDrinks_LostFocus(sender As Object, e As EventArgs) Handles txtDrinks.LostFocus
+
+    End Sub
 End Class
