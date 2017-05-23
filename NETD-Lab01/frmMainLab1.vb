@@ -46,7 +46,6 @@ Public Class frmMainLab1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-
         'clears drink input fields
         txtDrinks.Clear()
 
@@ -81,49 +80,7 @@ Public Class frmMainLab1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub btnCalc_Click(sender As Object, e As EventArgs) Handles btnCalc.Click
-        'drink text box validation
-
-        'variable to hold valid drink number
-        Dim drinksInt As Integer
-
-        'checks if input is valid
-        If Int32.TryParse(txtDrinks.Text.Trim, drinksInt) Then
-
-            'checks if valid drink number between 1 and 5
-            If drinksInt > 0 And drinksInt < 6 Then
-
-                'checks if drink box empty
-                If cbxDrinks.SelectedIndex = -1 Then
-                    MessageBox.Show("Must select a drink type", "No Selected Drink Type Error")
-
-                Else
-                    'checks each meal radio button to ensure one is checked
-                    Dim mealSelected As Boolean = False
-                    For Each radbut As RadioButton In grpMeals.Controls
-                        If radbut.Checked Then
-                            mealSelected = True
-                        End If
-                    Next
-                    'prints error if no radio button is checked
-                    If Not mealSelected Then
-                        MessageBox.Show("Must select a meal", "No Selected Meal Error")
-
-                        'if all input passes validation, proceeds with calculation
-                    Else
-                        Call calcOrder(drinksInt)
-                    End If
-                End If
-
-                'Error handle for drink number not between 1 and 5
-            Else
-                MessageBox.Show("# of drinks must a be a whole number between 1 and 5", "Number of Drinks Error")
-                txtDrinks.Focus()
-            End If
-            'Error handle for invalid drink number (decimal or string)
-        Else
-            MessageBox.Show("# of drinks must a be a whole number between 1 and 5", "Number of Drinks Error")
-            txtDrinks.Focus()
-        End If
+        Call calcOrder(txtDrinks.Text)
     End Sub
 
     ''' <summary>
@@ -212,6 +169,22 @@ Public Class frmMainLab1
     End Sub
 
     Private Sub txtDrinks_LostFocus(sender As Object, e As EventArgs) Handles txtDrinks.LostFocus
+        Dim drinksInt As Integer
+        'checks if input is valid
+        If Int32.TryParse(txtDrinks.Text.Trim, drinksInt) Then
 
+            'checks if valid drink number between 1 and 5
+            If drinksInt > 0 And drinksInt < 6 Then
+
+                'Error handle for drink number not between 1 and 5
+            Else
+                MessageBox.Show("# of drinks must a be a whole number between 1 and 5", "Number of Drinks Error")
+                txtDrinks.Focus()
+            End If
+            'Error handle for invalid drink number (decimal or string)
+        Else
+            MessageBox.Show("# of drinks must a be a whole number between 1 and 5", "Number of Drinks Error")
+            txtDrinks.Focus()
+        End If
     End Sub
 End Class
