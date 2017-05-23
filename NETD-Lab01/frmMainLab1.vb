@@ -12,21 +12,8 @@
 Public Class frmMainLab1
 #Region "Variable Declaration"
     'drink prices
-    Private Const banthPrice As Integer = 3000
-    Private Const turboPrice As Integer = 1500
-    Private Const galaxyPrice As Integer = 2500
-    Private Const alderaanPrice As Integer = 2000
-    Private Const spicedPrice As Integer = 3500
-    Private Const deathPrice As Integer = 4000
-    'meal prices
-    Private Const steakPrice As Integer = 6500
-    Private Const wompratPrice As Integer = 4000
-    Private Const zuccaPrice As Integer = 4500
-    Private Const squillPrice As Integer = 5000
-    'snack prices
-    Private Const tuskenPrice As Integer = 1500
-    Private Const eopiePrice As Integer = 1250
-    Private Const dungPrice As Integer = 1000
+    Dim drinkNames = New String() {"Banth-Blood Fizz", "Galaxy Guzzler", "Alderaan Twist", "Spiced Jedi Mindbender", "Turbo Fizz", "Death Starfruit Punch"}
+    Dim drinkPrices = New Decimal() {3000.0, 1500.0, 2500.0, 2000.0, 3500.0, 4000.0}
 
 #End Region
 
@@ -141,6 +128,9 @@ Public Class frmMainLab1
         Dim snackTotal As Integer = 0
 
         Dim totalAmount As Integer = 0
+
+
+
 
         'calculates drink price based on listbox selection
         Select Case lbxDrinkType.SelectedItem
