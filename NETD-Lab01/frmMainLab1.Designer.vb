@@ -43,10 +43,14 @@ Partial Class frmMainLab1
         Me.cbxTusken = New System.Windows.Forms.CheckBox()
         Me.grpCalc = New System.Windows.Forms.GroupBox()
         Me.lblTotalVal = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblEST = New System.Windows.Forms.Label()
+        Me.lblESTVal = New System.Windows.Forms.Label()
+        Me.lblSubVal = New System.Windows.Forms.Label()
         Me.lblSnackVal = New System.Windows.Forms.Label()
         Me.lblMealVal = New System.Windows.Forms.Label()
         Me.lblDrinkVal = New System.Windows.Forms.Label()
-        Me.lblTotal = New System.Windows.Forms.Label()
+        Me.lblSubtotal = New System.Windows.Forms.Label()
         Me.lblSnacks = New System.Windows.Forms.Label()
         Me.lblMeals = New System.Windows.Forms.Label()
         Me.lblDrinks = New System.Windows.Forms.Label()
@@ -276,10 +280,14 @@ Partial Class frmMainLab1
         '
         Me.grpCalc.BackColor = System.Drawing.Color.Transparent
         Me.grpCalc.Controls.Add(Me.lblTotalVal)
+        Me.grpCalc.Controls.Add(Me.Label4)
+        Me.grpCalc.Controls.Add(Me.lblEST)
+        Me.grpCalc.Controls.Add(Me.lblESTVal)
+        Me.grpCalc.Controls.Add(Me.lblSubVal)
         Me.grpCalc.Controls.Add(Me.lblSnackVal)
         Me.grpCalc.Controls.Add(Me.lblMealVal)
         Me.grpCalc.Controls.Add(Me.lblDrinkVal)
-        Me.grpCalc.Controls.Add(Me.lblTotal)
+        Me.grpCalc.Controls.Add(Me.lblSubtotal)
         Me.grpCalc.Controls.Add(Me.lblSnacks)
         Me.grpCalc.Controls.Add(Me.lblMeals)
         Me.grpCalc.Controls.Add(Me.lblDrinks)
@@ -287,7 +295,7 @@ Partial Class frmMainLab1
         Me.grpCalc.ForeColor = System.Drawing.Color.Yellow
         Me.grpCalc.Location = New System.Drawing.Point(20, 308)
         Me.grpCalc.Name = "grpCalc"
-        Me.grpCalc.Size = New System.Drawing.Size(438, 149)
+        Me.grpCalc.Size = New System.Drawing.Size(438, 202)
         Me.grpCalc.TabIndex = 4
         Me.grpCalc.TabStop = False
         Me.grpCalc.Text = "Calculations"
@@ -295,18 +303,60 @@ Partial Class frmMainLab1
         'lblTotalVal
         '
         Me.lblTotalVal.AutoSize = True
-        Me.lblTotalVal.Location = New System.Drawing.Point(166, 112)
+        Me.lblTotalVal.Location = New System.Drawing.Point(166, 162)
         Me.lblTotalVal.Name = "lblTotalVal"
         Me.lblTotalVal.Size = New System.Drawing.Size(54, 20)
-        Me.lblTotalVal.TabIndex = 7
+        Me.lblTotalVal.TabIndex = 11
         Me.lblTotalVal.Text = "$0.00"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(9, 162)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(44, 20)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "Total"
+        '
+        'lblEST
+        '
+        Me.lblEST.AutoSize = True
+        Me.lblEST.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEST.ForeColor = System.Drawing.Color.White
+        Me.lblEST.Location = New System.Drawing.Point(11, 135)
+        Me.lblEST.Name = "lblEST"
+        Me.lblEST.Size = New System.Drawing.Size(44, 20)
+        Me.lblEST.TabIndex = 9
+        Me.lblEST.Text = "EST:"
+        '
+        'lblESTVal
+        '
+        Me.lblESTVal.AutoSize = True
+        Me.lblESTVal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblESTVal.ForeColor = System.Drawing.Color.SteelBlue
+        Me.lblESTVal.Location = New System.Drawing.Point(171, 135)
+        Me.lblESTVal.Name = "lblESTVal"
+        Me.lblESTVal.Size = New System.Drawing.Size(49, 20)
+        Me.lblESTVal.TabIndex = 8
+        Me.lblESTVal.Text = "$0.00"
+        '
+        'lblSubVal
+        '
+        Me.lblSubVal.AutoSize = True
+        Me.lblSubVal.Location = New System.Drawing.Point(166, 99)
+        Me.lblSubVal.Name = "lblSubVal"
+        Me.lblSubVal.Size = New System.Drawing.Size(54, 20)
+        Me.lblSubVal.TabIndex = 7
+        Me.lblSubVal.Text = "$0.00"
         '
         'lblSnackVal
         '
         Me.lblSnackVal.AutoSize = True
         Me.lblSnackVal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSnackVal.ForeColor = System.Drawing.Color.Tomato
-        Me.lblSnackVal.Location = New System.Drawing.Point(171, 77)
+        Me.lblSnackVal.Location = New System.Drawing.Point(171, 75)
         Me.lblSnackVal.Name = "lblSnackVal"
         Me.lblSnackVal.Size = New System.Drawing.Size(49, 20)
         Me.lblSnackVal.TabIndex = 6
@@ -317,7 +367,7 @@ Partial Class frmMainLab1
         Me.lblMealVal.AutoSize = True
         Me.lblMealVal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMealVal.ForeColor = System.Drawing.Color.Tomato
-        Me.lblMealVal.Location = New System.Drawing.Point(171, 52)
+        Me.lblMealVal.Location = New System.Drawing.Point(171, 51)
         Me.lblMealVal.Name = "lblMealVal"
         Me.lblMealVal.Size = New System.Drawing.Size(49, 20)
         Me.lblMealVal.TabIndex = 5
@@ -334,23 +384,23 @@ Partial Class frmMainLab1
         Me.lblDrinkVal.TabIndex = 4
         Me.lblDrinkVal.Text = "$0.00"
         '
-        'lblTotal
+        'lblSubtotal
         '
-        Me.lblTotal.AutoSize = True
-        Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotal.ForeColor = System.Drawing.Color.White
-        Me.lblTotal.Location = New System.Drawing.Point(9, 112)
-        Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.Size = New System.Drawing.Size(108, 20)
-        Me.lblTotal.TabIndex = 3
-        Me.lblTotal.Text = "Total Amount:"
+        Me.lblSubtotal.AutoSize = True
+        Me.lblSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSubtotal.ForeColor = System.Drawing.Color.White
+        Me.lblSubtotal.Location = New System.Drawing.Point(11, 99)
+        Me.lblSubtotal.Name = "lblSubtotal"
+        Me.lblSubtotal.Size = New System.Drawing.Size(77, 20)
+        Me.lblSubtotal.TabIndex = 3
+        Me.lblSubtotal.Text = "Subtotal: "
         '
         'lblSnacks
         '
         Me.lblSnacks.AutoSize = True
         Me.lblSnacks.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSnacks.ForeColor = System.Drawing.Color.White
-        Me.lblSnacks.Location = New System.Drawing.Point(9, 77)
+        Me.lblSnacks.Location = New System.Drawing.Point(11, 75)
         Me.lblSnacks.Name = "lblSnacks"
         Me.lblSnacks.Size = New System.Drawing.Size(66, 20)
         Me.lblSnacks.TabIndex = 2
@@ -361,7 +411,7 @@ Partial Class frmMainLab1
         Me.lblMeals.AutoSize = True
         Me.lblMeals.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMeals.ForeColor = System.Drawing.Color.White
-        Me.lblMeals.Location = New System.Drawing.Point(9, 52)
+        Me.lblMeals.Location = New System.Drawing.Point(11, 51)
         Me.lblMeals.Name = "lblMeals"
         Me.lblMeals.Size = New System.Drawing.Size(51, 20)
         Me.lblMeals.TabIndex = 1
@@ -372,7 +422,7 @@ Partial Class frmMainLab1
         Me.lblDrinks.AutoSize = True
         Me.lblDrinks.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDrinks.ForeColor = System.Drawing.Color.White
-        Me.lblDrinks.Location = New System.Drawing.Point(9, 27)
+        Me.lblDrinks.Location = New System.Drawing.Point(11, 27)
         Me.lblDrinks.Name = "lblDrinks"
         Me.lblDrinks.Size = New System.Drawing.Size(58, 20)
         Me.lblDrinks.TabIndex = 0
@@ -498,14 +548,18 @@ Partial Class frmMainLab1
     Friend WithEvents btnExit As Button
     Friend WithEvents btnMusic As CheckBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents lblTotal As Label
+    Friend WithEvents lblSubtotal As Label
     Friend WithEvents lblSnacks As Label
     Friend WithEvents lblMeals As Label
     Friend WithEvents lblDrinks As Label
-    Friend WithEvents lblTotalVal As Label
+    Friend WithEvents lblSubVal As Label
     Friend WithEvents lblSnackVal As Label
     Friend WithEvents lblMealVal As Label
     Friend WithEvents lblDrinkVal As Label
     Friend WithEvents cbxDrinks As ComboBox
     Friend WithEvents tipCantina As ToolTip
+    Friend WithEvents lblTotalVal As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents lblEST As Label
+    Friend WithEvents lblESTVal As Label
 End Class
