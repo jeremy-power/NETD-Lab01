@@ -26,7 +26,7 @@ Partial Class frmMainLab1
         Me.pnlTitle = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.grpDrinks = New System.Windows.Forms.GroupBox()
-        Me.lbxDrinkType = New System.Windows.Forms.ListBox()
+        Me.cbxDrinks = New System.Windows.Forms.ComboBox()
         Me.lblDrinkType = New System.Windows.Forms.Label()
         Me.txtDrinks = New System.Windows.Forms.TextBox()
         Me.lblDrinkNum = New System.Windows.Forms.Label()
@@ -63,7 +63,8 @@ Partial Class frmMainLab1
         '
         'pnlTitle
         '
-        Me.pnlTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlTitle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.pnlTitle.Controls.Add(Me.lblTitle)
         Me.pnlTitle.Location = New System.Drawing.Point(12, 12)
@@ -85,7 +86,7 @@ Partial Class frmMainLab1
         'grpDrinks
         '
         Me.grpDrinks.BackColor = System.Drawing.Color.Transparent
-        Me.grpDrinks.Controls.Add(Me.lbxDrinkType)
+        Me.grpDrinks.Controls.Add(Me.cbxDrinks)
         Me.grpDrinks.Controls.Add(Me.lblDrinkType)
         Me.grpDrinks.Controls.Add(Me.txtDrinks)
         Me.grpDrinks.Controls.Add(Me.lblDrinkNum)
@@ -93,27 +94,26 @@ Partial Class frmMainLab1
         Me.grpDrinks.ForeColor = System.Drawing.Color.Yellow
         Me.grpDrinks.Location = New System.Drawing.Point(20, 71)
         Me.grpDrinks.Name = "grpDrinks"
-        Me.grpDrinks.Size = New System.Drawing.Size(214, 216)
+        Me.grpDrinks.Size = New System.Drawing.Size(214, 180)
         Me.grpDrinks.TabIndex = 1
         Me.grpDrinks.TabStop = False
         Me.grpDrinks.Text = "Drinks"
         '
-        'lbxDrinkType
+        'cbxDrinks
         '
-        Me.lbxDrinkType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbxDrinkType.FormattingEnabled = True
-        Me.lbxDrinkType.ItemHeight = 20
-        Me.lbxDrinkType.Items.AddRange(New Object() {"Banth-Blood Fizz", "Galaxy Guzzler", "Alderaan Twist", "Spiced Jedi Mindbender", "Turbo Fizz", "Death Starfruit Punch"})
-        Me.lbxDrinkType.Location = New System.Drawing.Point(8, 83)
-        Me.lbxDrinkType.Name = "lbxDrinkType"
-        Me.lbxDrinkType.Size = New System.Drawing.Size(190, 124)
-        Me.lbxDrinkType.TabIndex = 3
+        Me.cbxDrinks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxDrinks.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbxDrinks.FormattingEnabled = True
+        Me.cbxDrinks.Location = New System.Drawing.Point(13, 104)
+        Me.cbxDrinks.Name = "cbxDrinks"
+        Me.cbxDrinks.Size = New System.Drawing.Size(186, 28)
+        Me.cbxDrinks.TabIndex = 3
         '
         'lblDrinkType
         '
         Me.lblDrinkType.AutoSize = True
         Me.lblDrinkType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDrinkType.Location = New System.Drawing.Point(11, 56)
+        Me.lblDrinkType.Location = New System.Drawing.Point(11, 77)
         Me.lblDrinkType.Name = "lblDrinkType"
         Me.lblDrinkType.Size = New System.Drawing.Size(88, 20)
         Me.lblDrinkType.TabIndex = 2
@@ -149,7 +149,7 @@ Partial Class frmMainLab1
         Me.grpMeals.ForeColor = System.Drawing.Color.Yellow
         Me.grpMeals.Location = New System.Drawing.Point(244, 71)
         Me.grpMeals.Name = "grpMeals"
-        Me.grpMeals.Size = New System.Drawing.Size(214, 216)
+        Me.grpMeals.Size = New System.Drawing.Size(214, 180)
         Me.grpMeals.TabIndex = 2
         Me.grpMeals.TabStop = False
         Me.grpMeals.Text = "Meals"
@@ -158,7 +158,7 @@ Partial Class frmMainLab1
         '
         Me.radNoMeal.AutoSize = True
         Me.radNoMeal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radNoMeal.Location = New System.Drawing.Point(17, 156)
+        Me.radNoMeal.Location = New System.Drawing.Point(17, 148)
         Me.radNoMeal.Name = "radNoMeal"
         Me.radNoMeal.Size = New System.Drawing.Size(88, 24)
         Me.radNoMeal.TabIndex = 7
@@ -170,7 +170,7 @@ Partial Class frmMainLab1
         '
         Me.radSquill.AutoSize = True
         Me.radSquill.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radSquill.Location = New System.Drawing.Point(17, 124)
+        Me.radSquill.Location = New System.Drawing.Point(17, 116)
         Me.radSquill.Name = "radSquill"
         Me.radSquill.Size = New System.Drawing.Size(147, 24)
         Me.radSquill.TabIndex = 6
@@ -182,7 +182,7 @@ Partial Class frmMainLab1
         '
         Me.radZucca.AutoSize = True
         Me.radZucca.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radZucca.Location = New System.Drawing.Point(17, 92)
+        Me.radZucca.Location = New System.Drawing.Point(17, 84)
         Me.radZucca.Name = "radZucca"
         Me.radZucca.Size = New System.Drawing.Size(155, 24)
         Me.radZucca.TabIndex = 5
@@ -194,7 +194,7 @@ Partial Class frmMainLab1
         '
         Me.radWomprat.AutoSize = True
         Me.radWomprat.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radWomprat.Location = New System.Drawing.Point(17, 60)
+        Me.radWomprat.Location = New System.Drawing.Point(17, 52)
         Me.radWomprat.Name = "radWomprat"
         Me.radWomprat.Size = New System.Drawing.Size(134, 24)
         Me.radWomprat.TabIndex = 4
@@ -206,7 +206,7 @@ Partial Class frmMainLab1
         '
         Me.radSteak.AutoSize = True
         Me.radSteak.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radSteak.Location = New System.Drawing.Point(17, 28)
+        Me.radSteak.Location = New System.Drawing.Point(17, 20)
         Me.radSteak.Name = "radSteak"
         Me.radSteak.Size = New System.Drawing.Size(125, 24)
         Me.radSteak.TabIndex = 3
@@ -222,7 +222,7 @@ Partial Class frmMainLab1
         Me.grpSnacks.Controls.Add(Me.cbxTusken)
         Me.grpSnacks.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpSnacks.ForeColor = System.Drawing.Color.Yellow
-        Me.grpSnacks.Location = New System.Drawing.Point(20, 293)
+        Me.grpSnacks.Location = New System.Drawing.Point(20, 251)
         Me.grpSnacks.Name = "grpSnacks"
         Me.grpSnacks.Size = New System.Drawing.Size(438, 53)
         Me.grpSnacks.TabIndex = 3
@@ -275,7 +275,7 @@ Partial Class frmMainLab1
         Me.grpCalc.Controls.Add(Me.lblDrinks)
         Me.grpCalc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grpCalc.ForeColor = System.Drawing.Color.Yellow
-        Me.grpCalc.Location = New System.Drawing.Point(20, 353)
+        Me.grpCalc.Location = New System.Drawing.Point(20, 308)
         Me.grpCalc.Name = "grpCalc"
         Me.grpCalc.Size = New System.Drawing.Size(438, 149)
         Me.grpCalc.TabIndex = 4
@@ -470,7 +470,6 @@ Partial Class frmMainLab1
     Friend WithEvents grpCalc As GroupBox
     Friend WithEvents btnCalc As Button
     Friend WithEvents lblDrinkNum As Label
-    Friend WithEvents lbxDrinkType As ListBox
     Friend WithEvents lblDrinkType As Label
     Friend WithEvents txtDrinks As TextBox
     Friend WithEvents radNoMeal As RadioButton
@@ -493,4 +492,5 @@ Partial Class frmMainLab1
     Friend WithEvents lblSnackVal As Label
     Friend WithEvents lblMealVal As Label
     Friend WithEvents lblDrinkVal As Label
+    Friend WithEvents cbxDrinks As ComboBox
 End Class

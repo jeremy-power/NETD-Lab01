@@ -11,16 +11,28 @@
 ' --------------------------------------------
 Public Class frmMainLab1
 #Region "Variable Declaration"
-    'drink prices
-    'test
-    Dim drinkNames = New String() {"Banth-Blood Fizz", "Galaxy Guzzler", "Alderaan Twist", "Spiced Jedi Mindbender", "Turbo Fizz", "Death Starfruit Punch"}
-    Dim drinkPrices = New Decimal() {3000.0, 1500.0, 2500.0, 2000.0, 3500.0, 4000.0}
+    'meal prices
+    Const steakPrice As Integer = 6500
+    Const wompratPrice As Integer = 4000
+    Const zuccaPrice As Integer = 4500
+    Const squillPrice As Integer = 5000
+    'snack prices
+    Const tuskenPrice As Integer = 1500
+    Const eopiePrice As Integer = 1250
+    Const dungPrice As Integer = 1000
 
+    Dim drinkNames = New String(7) {"Banth-Blood Fizz", "Galaxy Guzzler", "Alderaan Twist", "Spiced Jedi Mindbender", "Turbo Fizz", "Death Starfruit Punch", "Bespin Vapour", "Water"}
+    Dim drinkPrices = New Decimal(7) {3000.0, 1500.0, 2500.0, 2000.0, 3500.0, 4000.0, 10000.0, 1000.0}
+    Private Sub frmMainLab1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'set drink prices
+
+        cbxDrinks.DataSource = drinkNames
+    End Sub
 #End Region
 
     ''' <summary>
     ''' Event Handler for Exit Button
-    ''' </summary>
+    ''' </summary>  
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
@@ -38,7 +50,6 @@ Public Class frmMainLab1
 
         'clears drink input fields
         txtDrinks.Clear()
-        lbxDrinkType.ClearSelected()
 
         'sets all output labels to "$0.00"
         lblDrinkVal.Text = "$0.00"
@@ -82,7 +93,7 @@ Public Class frmMainLab1
             If drinksInt > 0 And drinksInt < 6 Then
 
                 'checks if drink box empty
-                If lbxDrinkType.SelectedIndex = -1 Then
+                If cbxDrinks.SelectedIndex = -1 Then
                     MessageBox.Show("Must select a drink type", "No Selected Drink Type Error")
 
                 Else
@@ -130,24 +141,13 @@ Public Class frmMainLab1
 
         Dim totalAmount As Integer = 0
 
-
-
-
-        'calculates drink price based on listbox selection
-        Select Case lbxDrinkType.SelectedItem
-            Case "Banth-Blood Fizz"
-                drinkTotal = drinksInt * banthPrice
-            Case "Galaxy Guzzler"
-                drinkTotal = drinksInt * galaxyPrice
-            Case "Alderaan Twist"
-                drinkTotal = drinksInt * alderaanPrice
-            Case "Spiced Jedi Mindbender"
-                drinkTotal = drinksInt * spicedPrice
-            Case "Turbo Fizz"
-                drinkTotal = drinksInt * turboPrice
-            Case "Death Starfruit Punch"
-                drinkTotal = drinksInt * deathPrice
-        End Select
+        For Each item As String In drinkNames
+            Static Dim i As Integer = 0
+            If cbxDrinks.SelectedItem = item Then
+                drinkTotal += drinkPrices(i) * drinksInt
+            End If
+            i += 1
+        Next
 
         'sets output to drink value
         lblDrinkVal.Text = FormatCurrency(drinkTotal)
@@ -210,4 +210,5 @@ Public Class frmMainLab1
         End If
 
     End Sub
+
 End Class
