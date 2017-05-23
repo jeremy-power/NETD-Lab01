@@ -12,6 +12,7 @@
 Public Class frmMainLab1
 #Region "Variable Declaration"
     'drink prices
+    'test
     Dim drinkNames = New String() {"Banth-Blood Fizz", "Galaxy Guzzler", "Alderaan Twist", "Spiced Jedi Mindbender", "Turbo Fizz", "Death Starfruit Punch"}
     Dim drinkPrices = New Decimal() {3000.0, 1500.0, 2500.0, 2000.0, 3500.0, 4000.0}
 
