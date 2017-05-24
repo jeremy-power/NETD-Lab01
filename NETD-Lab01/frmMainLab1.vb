@@ -26,6 +26,11 @@ Public Class frmMainLab1
     'set drink prices
     Dim drinkNames = New String(7) {"Banth-Blood Fizz", "Galaxy Guzzler", "Alderaan Twist", "Spiced Jedi Mindbender", "Turbo Fizz", "Death Starfruit Punch", "Bespin Vapour", "Water"}
     Dim drinkPrices = New Decimal(7) {3000.0, 1500.0, 2500.0, 2000.0, 3500.0, 4000.0, 10000.0, 1000.0}
+    ''' <summary>
+    ''' Loads combo box items from array of drinks
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub frmMainLab1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cbxDrinks.DataSource = drinkNames
     End Sub
