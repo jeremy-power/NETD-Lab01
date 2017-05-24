@@ -1,5 +1,6 @@
 ﻿' ---------------------------------------------'
 ' Name: Jeremy Power 100523300                 '
+' Name: Connlaoi Smith                         '
 ' Date: May 16, 2017                           '
 ' Purpose: Lab 1B                              '
 ' Description: Cantina Order Form              '
@@ -30,6 +31,11 @@ Public Class frmMainLab1
     End Sub
 #End Region
 
+    ''' <summary>
+    ''' Handles input validation when the user clicks out of text validation
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub txtDrinks_LostFocus(sender As Object, e As EventArgs) Handles txtDrinks.LostFocus
         If Not isValid() And Not btnExit.Focused And Not btnClear.Focused Then
             MessageBox.Show("# of drinks must a be a whole number between 1 and 5", "Number of Drinks Error")
@@ -41,6 +47,7 @@ Public Class frmMainLab1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        'closes the form
         Me.Close()
     End Sub
 
@@ -51,7 +58,8 @@ Public Class frmMainLab1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        setDefaults()
+        'calls set default when clear button is clicked
+        SetDefaults()
     End Sub
 
     ''' <summary>
@@ -62,12 +70,17 @@ Public Class frmMainLab1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub btnCalc_Click(sender As Object, e As EventArgs) Handles btnCalc.Click
+        'ensures the text box is not empty to avoid errors
         If txtDrinks.Text IsNot "" Then
-            Call calcOrder(txtDrinks.Text)
+            'calculates the total
+            Call CalcOrder(txtDrinks.Text)
         End If
     End Sub
 
-    Private Sub setDefaults()
+    ''' <summary>
+    ''' Sets default options for each input value
+    ''' </summary>
+    Private Sub SetDefaults()
         'clears drink input fields
         txtDrinks.Clear()
 
@@ -83,6 +96,7 @@ Public Class frmMainLab1
         For Each radBut As RadioButton In grpMeals.Controls
             radBut.Checked = False
         Next
+        'sets meal to default
         radNoMeal.Checked = True
 
         'clears all snack checkboxes
@@ -101,7 +115,7 @@ Public Class frmMainLab1
     ''' label text values to the output
     ''' </summary>
     ''' <param name="drinksInt"></param>
-    Private Sub calcOrder(drinksInt As Integer)
+    Private Sub CalcOrder(drinksInt As Integer)
         'defines total for each section to be displayed
         Dim drinkTotal As Decimal = 0.00
         Dim mealTotal As Decimal = 0.00
@@ -171,18 +185,36 @@ Public Class frmMainLab1
 
     End Sub
 
-    Private Function calculateTax(SubTotal As Double,
+    ''' <summary>
+    ''' Calculates the tax on the subtotal based
+    ''' on the constant tax rate and whether or not
+    ''' there is water in the order
+    ''' </summary>
+    ''' <param name="SubTotal"></param>
+    ''' <param name="TaxRate"></param>
+    ''' <param name="drinkNum"></param>
+    ''' <param name="containsWater"></param>
+    ''' <returns></returns>
+    Private Function CalculateTax(SubTotal As Double,
                                   TaxRate As Double,
                                   drinkNum As Integer,
                                   containsWater As Boolean) As Double
+        'If there is water in the order, subtract that from the subtotal
+        'and calculate tax on that
         If containsWater Then
             Return (SubTotal - (drinkPrices(7) * drinkNum)) * TaxRate
+            'Otherwise calculates 20% of subtotal
         Else
             Return SubTotal * TaxRate
         End If
     End Function
 
-    Private Function isValid() As Boolean
+    ''' <summary>
+    ''' Returns true if txtDrinks input is valid
+    ''' false if not
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function IsValid() As Boolean
         Dim drinksInt As Integer
         'checks if input is valid
 
