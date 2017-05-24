@@ -30,6 +30,11 @@ Public Class frmMainLab1
     End Sub
 #End Region
 
+    Private Sub txtDrinks_LostFocus(sender As Object, e As EventArgs) Handles txtDrinks.LostFocus
+        If Not isValid() Then
+            MessageBox.Show("# of drinks must a be a whole number between 1 and 5", "Number of Drinks Error")
+        End If
+    End Sub
     ''' <summary>
     ''' Event Handler for Exit Button
     ''' </summary>  
@@ -178,21 +183,22 @@ Public Class frmMainLab1
     End Function
 
     Private Function isValid() As Boolean
+        If Not btnExit.Focused Or Not btnClear.Focused Then
+            Dim drinksInt As Integer
+            'checks if input is valid
 
-        Dim drinksInt As Integer
-        'checks if input is valid
-
-        If Int32.TryParse(txtDrinks.Text.Trim, drinksInt) Then
-            'checks if valid drink number between 1 and 5
-            If drinksInt > 0 And drinksInt < 6 Then
-                Return True
-                'Error handle for drink number not between 1 and 5
+            If Int32.TryParse(txtDrinks.Text.Trim, drinksInt) Then
+                'checks if valid drink number between 1 and 5
+                If drinksInt > 0 And drinksInt < 6 Then
+                    Return True
+                    'Error handle for drink number not between 1 and 5
+                Else
+                    Return False
+                End If
+                'Error handle for invalid drink number (decimal or string)
             Else
                 Return False
             End If
-            'Error handle for invalid drink number (decimal or string)
-        Else
-            Return False
         End If
 
     End Function
@@ -217,9 +223,4 @@ Public Class frmMainLab1
 
     End Sub
 
-    Private Sub txtDrinks_LostFocus(sender As Object, e As EventArgs) Handles txtDrinks.LostFocus
-        If Not isValid() Then
-            MessageBox.Show("# of drinks must a be a whole number between 1 and 5", "Number of Drinks Error")
-        End If
-    End Sub
 End Class
