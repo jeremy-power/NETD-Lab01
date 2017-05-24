@@ -252,6 +252,7 @@ Partial Class frmMainLab1
         Me.cbxDung.Size = New System.Drawing.Size(121, 24)
         Me.cbxDung.TabIndex = 2
         Me.cbxDung.Text = "Dung Worms"
+        Me.tipCantina.SetToolTip(Me.cbxDung, "Dung Worms")
         Me.cbxDung.UseVisualStyleBackColor = True
         '
         'cbxEopie
@@ -263,6 +264,7 @@ Partial Class frmMainLab1
         Me.cbxEopie.Size = New System.Drawing.Size(146, 24)
         Me.cbxEopie.TabIndex = 1
         Me.cbxEopie.Text = "Eopie Cream Pie"
+        Me.tipCantina.SetToolTip(Me.cbxEopie, "Eopie Cream Pie")
         Me.cbxEopie.UseVisualStyleBackColor = True
         '
         'cbxTusken
@@ -274,6 +276,7 @@ Partial Class frmMainLab1
         Me.cbxTusken.Size = New System.Drawing.Size(127, 24)
         Me.cbxTusken.TabIndex = 0
         Me.cbxTusken.Text = "Tusken Bread"
+        Me.tipCantina.SetToolTip(Me.cbxTusken, "Tusken Bread")
         Me.cbxTusken.UseVisualStyleBackColor = True
         '
         'grpCalc
@@ -325,7 +328,7 @@ Partial Class frmMainLab1
         Me.lblEST.AutoSize = True
         Me.lblEST.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEST.ForeColor = System.Drawing.Color.White
-        Me.lblEST.Location = New System.Drawing.Point(11, 135)
+        Me.lblEST.Location = New System.Drawing.Point(9, 135)
         Me.lblEST.Name = "lblEST"
         Me.lblEST.Size = New System.Drawing.Size(44, 20)
         Me.lblEST.TabIndex = 9
@@ -389,7 +392,7 @@ Partial Class frmMainLab1
         Me.lblSubtotal.AutoSize = True
         Me.lblSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSubtotal.ForeColor = System.Drawing.Color.White
-        Me.lblSubtotal.Location = New System.Drawing.Point(11, 99)
+        Me.lblSubtotal.Location = New System.Drawing.Point(9, 99)
         Me.lblSubtotal.Name = "lblSubtotal"
         Me.lblSubtotal.Size = New System.Drawing.Size(77, 20)
         Me.lblSubtotal.TabIndex = 3
@@ -400,7 +403,7 @@ Partial Class frmMainLab1
         Me.lblSnacks.AutoSize = True
         Me.lblSnacks.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSnacks.ForeColor = System.Drawing.Color.White
-        Me.lblSnacks.Location = New System.Drawing.Point(11, 75)
+        Me.lblSnacks.Location = New System.Drawing.Point(9, 75)
         Me.lblSnacks.Name = "lblSnacks"
         Me.lblSnacks.Size = New System.Drawing.Size(66, 20)
         Me.lblSnacks.TabIndex = 2
@@ -411,7 +414,7 @@ Partial Class frmMainLab1
         Me.lblMeals.AutoSize = True
         Me.lblMeals.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMeals.ForeColor = System.Drawing.Color.White
-        Me.lblMeals.Location = New System.Drawing.Point(11, 51)
+        Me.lblMeals.Location = New System.Drawing.Point(9, 51)
         Me.lblMeals.Name = "lblMeals"
         Me.lblMeals.Size = New System.Drawing.Size(51, 20)
         Me.lblMeals.TabIndex = 1
@@ -422,7 +425,7 @@ Partial Class frmMainLab1
         Me.lblDrinks.AutoSize = True
         Me.lblDrinks.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDrinks.ForeColor = System.Drawing.Color.White
-        Me.lblDrinks.Location = New System.Drawing.Point(11, 27)
+        Me.lblDrinks.Location = New System.Drawing.Point(9, 27)
         Me.lblDrinks.Name = "lblDrinks"
         Me.lblDrinks.Size = New System.Drawing.Size(58, 20)
         Me.lblDrinks.TabIndex = 0

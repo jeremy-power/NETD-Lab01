@@ -1,6 +1,6 @@
 ﻿' ---------------------------------------------'
 ' Name: Jeremy Power 100523300                 '
-' Name: Connlaoi Smith                         '
+' Name: Connlaoi Smith 100483385               '
 ' Date: May 16, 2017                           '
 ' Purpose: Lab 1B                              '
 ' Description: Cantina Order Form              '
@@ -26,6 +26,7 @@ Public Class frmMainLab1
     'set drink prices
     Dim drinkNames = New String(7) {"Banth-Blood Fizz", "Galaxy Guzzler", "Alderaan Twist", "Spiced Jedi Mindbender", "Turbo Fizz", "Death Starfruit Punch", "Bespin Vapour", "Water"}
     Dim drinkPrices = New Decimal(7) {3000.0, 1500.0, 2500.0, 2000.0, 3500.0, 4000.0, 10000.0, 1000.0}
+
     ''' <summary>
     ''' Loads combo box items from array of drinks
     ''' </summary>
@@ -42,7 +43,10 @@ Public Class frmMainLab1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub txtDrinks_LostFocus(sender As Object, e As EventArgs) Handles txtDrinks.LostFocus
-        If Not isValid() And Not btnExit.Focused And Not btnClear.Focused Then
+        'upon user clicking outside of textbox, checks whether input is valid unless
+        'clicking on clear or exit
+        If Not IsValid() And Not btnExit.Focused And Not btnClear.Focused Then
+            'displays error if not valid
             MessageBox.Show("# of drinks must a be a whole number between 1 and 5", "Number of Drinks Error")
         End If
     End Sub
@@ -126,7 +130,7 @@ Public Class frmMainLab1
         Dim mealTotal As Decimal = 0.00
         Dim snackTotal As Decimal = 0.00
 
-        Dim taxTotal As Decimal
+        Dim taxTotal As Decimal = 0.00
         Dim subTotal As Decimal = 0.00
         Dim finalTotal As Decimal = 0.00
 
@@ -159,7 +163,7 @@ Public Class frmMainLab1
         'adds meals to final total
         subTotal += mealTotal
 
-        'calculates snack price based on each checkbox
+        'calculates snack price based on selected checkboxes
         If cbxTusken.Checked Then
             snackTotal += tuskenPrice
         End If
@@ -178,14 +182,20 @@ Public Class frmMainLab1
         'sets output value to final total
         lblSubVal.Text = FormatCurrency(subTotal)
 
+        'if water is selected, calculate without tax on water
         If cbxDrinks.SelectedItem = "Water" Then
             taxTotal = calculateTax(subTotal, TAX_RATE, drinksInt, True)
         Else
+            'otherwise calculate tax
             taxTotal = calculateTax(subTotal, TAX_RATE, drinksInt, False)
         End If
+        'prints out amount of tax
         lblESTVal.Text = FormatCurrency(taxTotal)
 
+        'calculates subtotal + tax
         finalTotal = subTotal + taxTotal
+
+        'prints final total
         lblTotalVal.Text = FormatCurrency(finalTotal)
 
     End Sub
