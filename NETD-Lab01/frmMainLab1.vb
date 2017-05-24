@@ -94,12 +94,14 @@ Public Class frmMainLab1
         txtDrinks.Clear()
 
         'sets all output labels to "$0.00"
+#Region "Default Label Values"
         lblDrinkVal.Text = "$0.00"
         lblMealVal.Text = "$0.00"
         lblSnackVal.Text = "$0.00"
         lblSubVal.Text = "$0.00"
         lblESTVal.Text = "$0.00"
         lblTotalVal.Text = "$0.00"
+#End Region
 
         'clears all meal radio buttons
         For Each radBut As RadioButton In grpMeals.Controls
@@ -126,6 +128,7 @@ Public Class frmMainLab1
     ''' <param name="drinksInt"></param>
     Private Sub CalcOrder(drinksInt As Integer)
         'defines total for each section to be displayed
+#Region "Total Variables"
         Dim drinkTotal As Decimal = 0.00
         Dim mealTotal As Decimal = 0.00
         Dim snackTotal As Decimal = 0.00
@@ -134,6 +137,9 @@ Public Class frmMainLab1
         Dim subTotal As Decimal = 0.00
         Dim finalTotal As Decimal = 0.00
 
+#End Region
+
+#Region "Drink Calculations"
         Dim i As Integer = 0
         For Each item As String In drinkNames
             If cbxDrinks.SelectedItem = item Then
@@ -141,12 +147,13 @@ Public Class frmMainLab1
             End If
             i += 1
         Next
+#End Region
 
         'sets output to drink value
         lblDrinkVal.Text = FormatCurrency(drinkTotal)
         'adds drinks to final total
         subTotal += drinkTotal
-
+#Region "Meal Calculations"
         'calculates meal price based on radio button selection
         If radSteak.Checked Then
             mealTotal = steakPrice
@@ -157,12 +164,13 @@ Public Class frmMainLab1
         ElseIf radSquill.Checked Then
             mealTotal = squillPrice
         End If
+#End Region
 
         'sets output to meal value
         lblMealVal.Text = FormatCurrency(mealTotal)
         'adds meals to final total
         subTotal += mealTotal
-
+#Region "Snack Calculations"
         'calculates snack price based on selected checkboxes
         If cbxTusken.Checked Then
             snackTotal += tuskenPrice
@@ -173,6 +181,7 @@ Public Class frmMainLab1
         If cbxDung.Checked Then
             snackTotal += dungPrice
         End If
+#End Region
 
         'sets output to snack value
         lblSnackVal.Text = FormatCurrency(snackTotal)
