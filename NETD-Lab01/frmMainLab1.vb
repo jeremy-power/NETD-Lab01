@@ -1,7 +1,7 @@
 ﻿' ---------------------------------------------'
 ' Name: Jeremy Power 100523300                 '
 ' Date: May 16, 2017                           '
-' Purpose: Lab 1A                              '
+' Purpose: Lab 1B                              '
 ' Description: Cantina Order Form              '
 ' Allows the user to enter a number of drinks  '
 ' between 1 and 5, choose from a type of drink,'
@@ -31,7 +31,7 @@ Public Class frmMainLab1
 #End Region
 
     Private Sub txtDrinks_LostFocus(sender As Object, e As EventArgs) Handles txtDrinks.LostFocus
-        If Not isValid() Then
+        If Not isValid() And Not btnExit.Focused And Not btnClear.Focused Then
             MessageBox.Show("# of drinks must a be a whole number between 1 and 5", "Number of Drinks Error")
         End If
     End Sub
@@ -183,22 +183,20 @@ Public Class frmMainLab1
     End Function
 
     Private Function isValid() As Boolean
-        If Not btnExit.Focused Or Not btnClear.Focused Then
-            Dim drinksInt As Integer
-            'checks if input is valid
+        Dim drinksInt As Integer
+        'checks if input is valid
 
-            If Int32.TryParse(txtDrinks.Text.Trim, drinksInt) Then
-                'checks if valid drink number between 1 and 5
-                If drinksInt > 0 And drinksInt < 6 Then
-                    Return True
-                    'Error handle for drink number not between 1 and 5
-                Else
-                    Return False
-                End If
-                'Error handle for invalid drink number (decimal or string)
+        If Int32.TryParse(txtDrinks.Text.Trim, drinksInt) Then
+            'checks if valid drink number between 1 and 5
+            If drinksInt > 0 And drinksInt < 6 Then
+                Return True
+                'Error handle for drink number not between 1 and 5
             Else
                 Return False
             End If
+            'Error handle for invalid drink number (decimal or string)
+        Else
+            Return False
         End If
 
     End Function
